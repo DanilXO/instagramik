@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% if popular_posts %}
+        <ul>
+        {% for post in popular_posts %}
+            <li><a href="{% url 'core:post_detail' post.id %}">
+                <p>{{ post.author }}</p>
+                <p>{{ post.date_pub }}</p>
+                <p><img alt="post's image" src="{{ post.image_url }}"
+                        style="width: 250px; height: 250px;"></p>
+                <p>{{ post.description }}</p>
+                <p>LIKES: {{ post.likes.count }}</p>
+                {# Простая форма "лайка" #}
+                <form method='post' action='{% url 'core:like-post' post.id %}'>
+                    {% csrf_token %} {# Подробнее здесь: https://docs.djangoproject.com/en/2.2/ref/csrf/ #}
+                    <button type='submit'>♥</button>
+                </form>
+            </a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p> Пока нет ни одного поста в нашей супер социальной сети... =(</p>
+    {% endif %}
+</body>
+</html>
