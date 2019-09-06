@@ -1,7 +1,7 @@
 from django import forms
 from django.core.exceptions import ValidationError
 
-from core.models import Post
+from core.models import Post, Comment
 
 
 class PostForm(forms.ModelForm):
@@ -33,3 +33,13 @@ class PostForm(forms.ModelForm):
             return image
         else:
             raise ValidationError("Не удалось прочитать файл")
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['text']
+
+        widgets = {
+            'text': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Текст комментария'})
+        }
