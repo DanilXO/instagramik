@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<form method="post" enctype="multipart/form-data">{% csrf_token %}
+        {% for field in form %}
+            {{field}}
+        {% endfor %}
+    <button type="submit"> Принять изменения </button>
+</form>
+<form action ='{% url 'core:delete_post' post.id %}' method="get">
+    {% csrf_token %}
+    <button type="submit"> Удалить пост </button>
+</form>

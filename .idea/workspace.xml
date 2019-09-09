@@ -2,15 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d74c763-c3ad-40c6-b28d-ed6ef8064984" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/exceptions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/templates/core/post_delete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/templates/core/post_edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/templates/core/delete_success.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templates/core/post_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/core/post.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/templates/core/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/core/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/templates/core/post.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/core/post.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/templates/core/post_create.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/core/post_create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/templates/core/post_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/core/post_delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/templates/core/post_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/core/post_edit.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +53,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../picturas" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
@@ -130,7 +130,8 @@
       <option name="presentableId" value="Default" />
       <updated>1567484782206</updated>
       <workItem from="1567484783395" duration="20174000" />
-      <workItem from="1567760910886" duration="7000000" />
+      <workItem from="1567760910886" duration="7088000" />
+      <workItem from="1568011801051" duration="1505000" />
     </task>
     <task id="LOCAL-00001" summary="до половины 4 занятия">
       <created>1567763123388</created>
@@ -139,7 +140,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567763123388</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="до 2.3 4 занятия">
+      <created>1567770938978</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1567770938978</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,7 +158,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -158,6 +168,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="до половины 4 занятия" />
-    <option name="LAST_COMMIT_MESSAGE" value="до половины 4 занятия" />
+    <MESSAGE value="до 2.3 4 занятия" />
+    <option name="LAST_COMMIT_MESSAGE" value="до 2.3 4 занятия" />
   </component>
 </project>
