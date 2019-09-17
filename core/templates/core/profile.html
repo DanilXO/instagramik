@@ -1,5 +1,8 @@
-<div>
-    <h1>{{ profile.user.username }}</h1>
+{% extends 'base.html' %}
+
+{% block content %} 
+<div class='container text-center'>
+    <h1> <i class='nickname'> {{ profile.user.username }} </i> </h1> 
     <h2> Дата рождения: 
     {% if profile.date_birth %}
         <i> {{ profile.date_birth|date:"d F Y" }} </i>
@@ -10,42 +13,88 @@
         <i> {{ profile.about }} </i> 
     {% endif %}
     </h2>
+    {% if profile.avatar %}
     <h2> <img class='avatar' src= '{{ profile.avatar.url }}'/> </h2>
+    {% endif %}
     {% if user.id == profile.user.id %}
-        <a href="{% url 'core:edit-profile' profile.user.id %}">  Редактировать профиль  </a>
+        <a href="{% url 'core:edit-profile' profile.user.id %}" class='btn btn-info text-center'>  Редактировать профиль  </a>
     {% else %}
         <form action = '{% url 'core:add-remove-friend' profile.user.id %}' method= 'post'>
         {% csrf_token %}
         {% if profile in user.user_profile.friends.all %}
-            <button type='submit'> Удалить из друзей </button>
+            <button type='submit' class='btn friends btn-danger'> Удалить из друзей </button>
         {% else %}
-            <button type='submit'> Добавить в друзья </button>
+            <button type='submit' class='btn friends btn-info'> Добавить в друзья </button>
         {% endif %}
-        </form>
     {% endif %}
-    <p>Друзья:</p>
-    {% if profile.friends.all %}
+                    
+                    
+    <ul class="list-unstyled components">
+        <li class="active">
+            <a href="#friends" data-toggle="collapse" class="btn create_btn"> 
+                Друзья 
+            </a>
+            <ul class="collapse list-unstyled" id="friends">
+            {% if profile.friends.all %}
                 {% for friend in profile.friends.all %}
                     <li>
-                        <a href='{% url 'core:profile' friend.user.id %}'>{{ friend }}</a>
+                        <a href='{% url 'core:profile' friend.id %}'>{{ friend }}</a>
                     </li>
                 {% endfor %}
-    {% else %}
-        <li> <a> Пока нет друзей. </a> </li>
-    {% endif %}
-    <p>Посты:</p> 
+            </ul>
+                {% else %}
+                    <li> <a> Пока нет друзей. </a> </li>
+                {% endif %}
+        </li>
+    </ul>
+
+    <ul class="list-unstyled components">
+    <li class="active">
+        <a href="#posts" data-toggle="collapse" class="btn create_btn"> 
+            Посты
+        </a>
+    <ul class="collapse list-unstyled" id="posts">    
     {% if profile.user.post_set.all  %}
+    <li class='active'>
+    <!-- Элементы с постами -->
+    <div class="album">
+        <div class="container">
+          <div class="row">
             {% for post in profile.user.post_set.all %}
-                <a href='{% url 'core:post' post.id %}'> <img src = '{{ post.image.url }}' alt="Card image cap"> </a>
-                  <p> {{ post.description }}</p>
-                    <a href= '{% url 'core:profile' post.author.id%}'> {{post.author.username}} </a>
-                    <p> {{ post.date_edit|date:"d F G:i"  }} </p>
-                    <p>{{ post.get_likes }} like{{post.get_likes|pluralize}}</p>
-                    <form method='post' action='{% url 'core:like-post' post.id %}'>
-                        {% csrf_token %} <button type='submit' class="btn btn-sm btn-danger"> like! </button>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <a href='{% url 'core:post_detail' post.id %}'> <img class="card-img-top" src = '{{ post.image.url }}' alt="Card image cap"> </a>
+                <div class="card-body">
+                  <p class="card-text"> {{ post.description }}</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <small class="text-muted"> <a href= '{% url 'core:profile' post.author.id%}'> {{post.author.username}} </a> </small>
+                    <small class="text-muted"> {{ post.date_edit|date:"d F G:i"  }} </small>
+                    <small class="text-muted"> {{ post.get_likes }} like{{post.get_likes|pluralize}} </small>
+                    <form method='post' action='{% url 'core:like_post' post.id %}'>
+                        {% csrf_token %} <button type='submit' class="btn btn-sm btn-danger"> <i class="fas fa-heart"></i> </button>
                     </form>
+                  </div>
+                </div>
+              </div>
+            </div>
             {% endfor %}
+        </ul>
+        </div>
+        </div>
+    </div>
+    <!-- Конец элементов с постами -->
     {% else %}
             <a> Постов нет. </a>
     {% endif %}
+    </ul>
+    </li>
+</ul>   
 </div>
+<script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+</script>
+{% endblock %}

@@ -1,15 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <p>{{ post.author }}</p>
-    <p>{{ post.date_pub }}</p>
-    <p><img alt="post's image" src="{{ post.image_url }}" style="width: 250px; height: 250px;"></p>
-    <p>{{ post.description }}</p>
-    <p>LIKES: {{ post.likes.count }}</p>
-</body>
-</html>
-
+{% extends 'base.html' %}
+{% block content %} 
+<div class='container post-container'>
+    {% if post %}
+        <p> <img class='post-container' src='{{ post.image.url }}' height='500'/> </p>
+        <p> Описание: {{ post.description }} </p>
+        <p> Дата редактирования: {{ post.date_edit|date:"d F Y G:i" }} </p>
+        <form method='post' action='{% url 'core:like_post' post.id %}'>{% csrf_token %}
+        <p> {{ post.get_likes }} like{{post.get_likes|pluralize}}
+            <button type='submit' class="btn btn-sm btn-danger"> <i class="fas fa-heart"></i> </button>
+        </p>
+        </form>
+        <p> Автор: 
+            <a href="{% url 'core:profile' post.author.id %}">  {{ post.author.username }} </b> </a>
+        </p>
+        {% if post.author == user %}
+            <a class='btn btn-info' href='{% url 'core:post_edit' post.id %}'> Редактировать пост </a>
+        {% endif %}
+        <div class='block comment mx-auto'>
+            <h1> Комментарии </h1> 
+            {% if comments.all %}
+            {% for comment in comments.all %}
+            <hr>
+                <h3> <b> {{ comment.author.username }} </b> : {{comment.text}} </h3>
+                <p> {{comment.date_publish|date:"d F G:i" }} </p>
+            {% endfor %}
+            {% else %}
+                <h3 class='msg'> Комментариев нет. Вы можете стать первым. </h3>
+            {% endif %}
+            <hr>
+            {% if comment_form %}
+                <form method='post'>
+                    <p> Комментарий: 
+                    {% csrf_token %} {{comment_form.text}} </p>
+                <button type='submit' class='btn create_btn'> Отправить </button>
+                </form>
+            {% else %}
+                <p style='color:red;'> Комментарии только для зарегистрированных пользователей </p>
+            {% endif %}
+        </div>
+    {% else %}
+        <h1> Такого поста нет </h1>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,10 +1,16 @@
-<form method="post" enctype="multipart/form-data">{% csrf_token %}
+{% extends 'base.html' %}
+
+{% block content %} 
+<div class='container create_post mx-auto text-center'>
+    <form method="post" enctype="multipart/form-data">{% csrf_token %}
         {% for field in form %}
             {{field}}
         {% endfor %}
-    <button type="submit"> Принять изменения </button>
-</form>
-<form action ='{% url 'core:delete_post' post.id %}' method="get">
-    {% csrf_token %}
-    <button type="submit"> Удалить пост </button>
-</form>
+    <button type="submit" class="btn btn-info text-center" > Принять изменения </button> 
+    </form>
+    <form action ='{% url 'core:delete_post' post.id %}' method="get">
+        {% csrf_token %}
+            <button type="submit" class='btn btn-danger'> Удалить пост </button>
+    </form>
+</div>
+{% endblock %}

@@ -1,3 +1,7 @@
-<h1> Пост удален </h1>
-<h2> <a href='{% url 'core:index' %}'> Вернуться на главную </a> или
-<a href='{% url 'core:create_post' %}'> cоздать новый пост </a> </h2>
+{% extends 'base.html' %}
+
+{% block content %} 
+<h1 class='msg'> Пост удален </h1>
+<h2 class='msg'> <a href='{% url 'core:index' %}' class='msg'> Вернуться на главную </a> или 
+<a href='{% url 'core:create-post' %}' class='msg'> создать новый пост </a> </h2>
+{% endblock content %} 

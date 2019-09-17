@@ -1,15 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<form method='post' enctype="multipart/form-data">
-{% csrf_token %}
-    {{ form }}
-<button type='submit'> Создать пост </button>
-</form>
-</body>
-</html>
-
+{% extends 'base.html' %}
+{% block content %} 
+{% if user.is_authenticated %}
+    <div class='container create_post mx-auto text-center'>
+    {% if post_was_created %}
+            <h1> Пост успешно создан. </h1>
+    <h3> Хотите <a href='{% url 'core:post_create' %}'> создать новый пост </a> или вернуться на 
+    <a href='{% url 'core:index' %}'> главную страницу </a> </h3>
+    {% else %}
+        <div class="form-group">
+        <form method='post' enctype="multipart/form-data"> 
+            {% csrf_token %}
+            {% for field in form %}
+                <a class='form_control'> {{field.label}} </a>
+                    {{ field }}
+                <ul> {{ field.errors }} </ul>
+            {% endfor %}
+        <button type='submit' class="btn create_btn text-center"> Создать пост </button>
+        </form>
+        </div>
+    {% endif %}
+    </div>
+{% else %}
+    <h3 class='msg'> Чтобы создавать посты, вам нужно <a href='{% url 'core:login'%}'> войти </a> или 
+    <a href='{% url 'core:signup'%}'> зарегистрироваться </a> </h3>
+{% endif %}
+{% endblock content %} 

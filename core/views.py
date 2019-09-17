@@ -27,7 +27,7 @@ class FeedView(View):
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             context = {}
-            posts = models.Post.objects.filter(author__in=request.user.profile.friends.all()).order_by('-date_pub')[:10]
+            posts = models.Post.objects.filter(author__in=request.user.user_profile.friends.all()).order_by('-date_pub')[:10]
             context['feed'] = posts
             return render(request, self.template_name, context)
         else:
@@ -106,12 +106,12 @@ class EditPostView(UpdateView):
 
     def get_success_url(self):
         post_id = self.kwargs['post_id']
-        return reverse('core:post', args=(post_id, ))
+        return reverse('core:post_detail', args=(post_id, ))
 
 
 class LikePostView(View):
     def get(self, request, post_id, *args, **kwargs):
-        return redirect(reverse('core:post', args=(post_id,)))
+        return redirect(reverse('core:post_detail', args=(post_id,)))
 
     def post(self, request, post_id, *args, **kwargs):
         post = get_object_or_404(Post, pk=post_id)
@@ -150,7 +150,7 @@ class LoginView(LoginView):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect(reverse('blog:index'), request)
+                return redirect(reverse('core:index'), request)
             else:
                 context = {}
                 context['form'] = form
@@ -220,12 +220,13 @@ class AddRemoveFriend(View):
 
     def post(self, request, user_id, *args, **kwargs):
         profile = get_object_or_404(Profile, user__id=user_id)
-        if profile.friends.filter(user__id=request.user.id).exists():
-            friend = profile.friends.get(user__id=request.user.id)
+        if profile.friends.filter(id=request.user.id).exists():
+            friend = profile.friends.get(id=request.user.id)
             profile.friends.remove(friend)
-            request.user.user_profile.friends.remove(profile)
+            request.user.user_profile.friends.remove(profile.user)
         else:
-            profile.friends.add(request.user.user_profile)
-            request.user.user_profile.friends.add(profile)
+            pass
+            profile.friends.add(request.user)
+            request.user.user_profile.friends.add(profile.user)
         return redirect(request.META.get('HTTP_REFERER'), request)
 

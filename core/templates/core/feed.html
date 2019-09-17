@@ -11,15 +11,15 @@
             {% for post in feed %}
             <div class="col-md-4">
               <div class="card mb-4 box-shadow">
-                <a href='{% url 'picturas:post' post.id %}'> <img class="card-img-top" src = '{{ post.image.url }}' alt="Card image cap"> </a>
+                <a href='{% url 'core:post_detail' post.id %}'> <img class="card-img-top" src = '{{ post.image.url }}' alt="Card image cap"> </a>
                 <div class="card-body">
                   <p class="card-text"> {{ post.description }}</p>
                   <div class="d-flex justify-content-between align-items-center">
-                    <small class="text-muted"> <a href= '{% url 'users:profile' post.author.id%}'> {{post.author.username}} </a> </small>
+                    <small class="text-muted"> <a href= '{% url 'core:profile' post.author.id%}'> {{post.author.username}} </a> </small>
                     <small class="text-muted"> {{ post.date_edit|date:"d F G:i"  }} </small>
                     <small class="text-muted"> {{ post.get_likes }} like{{post.get_likes|pluralize}} </small>
                     <div class="btn-group">
-                        <form method='post' action='{% url 'picturas:like-post' post.id %}'>
+                        <form method='post' action='{% url 'core:like_post' post.id %}'>
                             {% csrf_token %} <button type='submit' class="btn btn-sm btn-danger"> <i class="fas fa-heart"></i> </button>
                         </form>
                     </div>
@@ -38,7 +38,7 @@
         <h1 class='msg'> У вас пока что нет друзей </h1>
 {% endif %}
 {% else %}
-    <h3 class='msg'> Чтобы просматривать ленту друзей, вам нужно <a href='{% url 'users:login' %}'> войти </a> или
-    <a href='{% url 'users:signup'%}'> зарегистрироваться </a> </h3>
+    <h3 class='msg'> Чтобы просматривать ленту друзей, вам нужно <a href='{% url 'core:login' %}'> войти </a> или
+    <a href='{% url 'core:signup'%}'> зарегистрироваться </a> </h3>
 {% endif %}
 {% endblock %}

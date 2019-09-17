@@ -1,26 +1,32 @@
-<article>
-    {% if form.errors %}
-        {% for field, errors in form.errors.items %}
-            <p> {{ errors }} </p>
-        {% endfor %}
-    {% endif %}
-    <h3> Войти </h3>
-    <hr>
-    {% if not user.is_authenticated %}
-        <form method="post"> {% csrf_token %}
-            {% for field in form %}
-                <div>
+{% extends 'base.html' %}
+{% block content %} 
+<div class='container login'>
+    <div class="card registr text-center">
+        <article class="card-body text-center" >
+            {% if form.errors %}
+                {% for field, errors in form.errors.items %}
+                <p> {{ errors }} </p> 
+                {% endfor %}
+            {% endif %}
+            <h3 class="msg"> Войти </h3>
+            <hr>
+            {% if not user.is_authenticated %}
+            <form method="post"> {% csrf_token %}
+                {% for field in form %}
+                <div class="form-group">
                     <p> {{ field }} </p>
                 </div>     
-            {% endfor %}
-            <button type="submit">Войти</button>
-        </form>
-      <hr>
-      <a href='{% url 'core:password_reset' %}'> Забыли пароль? </a>
-    {% else %}
-         <h3> Привет, {{ user.username }} </h3>
-        <a href='{% url 'core:logout' %}'> Выйти? </a>
-        <a href='{% url 'core:index' %}'> На главную </a>
-    {% endif %}
-</article>
-
+                {% endfor %}
+            <button type="submit" class='btn btn-info'>Войти</button>
+            </form>
+            <hr>
+            <a href='{% url 'core:password_reset' %}'> Забыли пароль? </a>
+            {% else %}
+                <h3> Привет, {{ user.username }} </h3>
+                <a href='{% url 'core:logout' %}'> Выйти? </a>
+                <a href='{% url 'core:index' %}'> На главную </a>
+            {% endif %} 
+        </article>
+    </div>
+</div>
+{% endblock %}
