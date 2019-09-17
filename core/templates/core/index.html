@@ -1,22 +1,90 @@
-{% if popular_posts %}
-    <ul>
-        {% for post in popular_posts %}
-            <li><a href="{% url 'core:post_detail' post.id %}">
-                <p>{{ post.author }}</p>
-                <p>{{ post.date_pub }}</p>
-                <p><img alt="post's image" src="{{ post.image_url }}"
-                        style="width: 250px; height: 250px;"></p>
-                <p>{{ post.description }}</p>
-                <p>LIKES: {{ post.likes.count }}</p>
-                {# Простая форма "лайка" #}
-                <form method='post' action='{% url 'core:like_post' post.id %}'>
-                    {% csrf_token %} {# Подробнее здесь: https://docs.djangoproject.com/en/2.2/ref/csrf/ #}
-                    <button type='submit'>♥</button>
-                </form>
-            </a></li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p> Пока нет ни одного поста в нашей супер социальной сети... =(</p>
-{% endif %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <title>Instagramik</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'core/css/style.css' %}">
+  </head>
 
+<body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<nav class="navbar navbar-expand-lg">
+  <a class="navbar-brand" href="{% url 'core:index' %}"> Instagramik </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'core:feed' %}"> Лента </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'core:post_create' %}"> Создать пост </a>
+      </li>
+
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        {% if user.is_authenticated %}
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Привет, {{ user.username }}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url 'core:profile' user.id %}"> Профиль </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{% url 'core:logout' %}"> Выйти </a>
+            </div>
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'core:login' %}"> Войти </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'core:signup' %}"> Зарегистрироваться </a>
+            </li>
+        {% endif %}
+        </li>
+    </ul>
+  </div>
+</nav>
+
+    {% if popular_posts %}
+      <div class="album py-5">
+        <div class="container">
+          <div class="row">
+            {% for post in popular_posts %}
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <a href='{% url 'core:post_detail' post.id %}'> <img class="card-img-top" src = '{{ post.image.url }}' alt="Card image cap"> </a>
+                <div class="card-body">
+                  <p class="card-text"> {{ post.description }}</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <small class="text-muted"> <a href= '{% url 'core:profile' post.author.id%}'> {{post.author.username}} </a> </small>
+                    <small class="text-muted"> {{ post.date_edit|date:"d F G:i"  }} </small>
+                    <small class="text-muted"> {{ post.get_likes }} like{{post.get_likes|pluralize}} </small>
+                    <div class="btn-group">
+                        <form method='post' action='{% url 'core:like_post' post.id %}'>
+                            {% csrf_token %} <button type='submit' class="btn btn-sm btn-danger"> <i class="fas fa-heart"></i> </button>
+                        </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <h3 class='msg'> Постов нет </h3>
+    {% endif %}
+
+</body>
+</html>

@@ -213,7 +213,7 @@ class EditProfileView(UpdateView):
 
     def get_success_url(self):
         user_id = self.kwargs['user_id']
-        return reverse('users:profile', args=(user_id,))
+        return reverse('core:profile', args=(user_id,))
 
 
 class AddRemoveFriend(View):

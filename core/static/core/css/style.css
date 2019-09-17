@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css?family=Bad+Script|Caveat|Livvic|Montserrat|Pacifico|Raleway&display=swap');
+
+body {
+  background-color: #EAF0CE !important;
+}
+
+.navbar {
+  background-color: #E2D4BA;
+}
+
+.navbar-brand {
+  font-family: 'Pacifico', cursive;
+  font-size: 2rem;
+  color: #754F5B !important;
+}
+.navbar-toggler{
+  background-color: #754F5B;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+}
+.nav-link {
+  text-decoration: none;
+  color: #5D4954;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  padding-top: 1rem;
+}
+
+h1 {
+  color: #5D4954;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  padding-left: 1rem;
+  text-align: center;
+}
+
+h2, h3, p  {
+    color: #5D4954;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.msg {
+    padding-top: 3rem;
+    color: #5D4954;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+h1.msg {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.nav-link:hover {
+  color: #CA907E;
+}
+
+.avatar {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10rem;
+}
+
+.nickname {
+  font-family: 'Caveat', cursive;
+  font-size: 5rem;
+  color: #CA907E;
+}
+
+.create_post, .edit-profile {
+  padding-top: 3rem;
+  width: 500px;
+  height: 500px;
+}
+
+.btn.friends{
+  width: 205px !important;
+  margin-top:0.3rem !important; 
+  margin-bottom:0.3rem !important; 
+}
+
+.btn.create_btn  {
+  background-color: #CA907E !important;
+  width: 205px;
+  margin-top:0.3rem; 
+  margin-bottom:0.3rem; 
+}
+
+.btn.create_btn:hover{
+  background-color: rgb(124, 89, 78) !important;
+}
+
+a.btn.create_btn,
+a.btn.create_btn:hover {
+  text-decoration: none;
+  color: white;
+}
+
+img {
+  max-width: 600px;
+  max-height: 300px;
+  object-fit: cover;
+}
+
+.list-unstyled {
+  margin: 0;
+}
+.post-container {
+  text-align: center;
+  padding: 10px 20px;
+}
+img.post-container {
+  border-radius: 0.2rem;
+}
+.comment {
+  padding-top: 3rem;
+  width: 30rem;
+  height: 30rem;
+  text-align: center;
+}
+.btn {
+  margin-top:0.3rem !important; 
+  margin-bottom:0.3rem !important; 
+}
+
+.card.registr{
+  width: 30rem;
+  margin: 0 auto; 
+  float: none;
+  background-color: rgb(254, 255, 250);
+}
+.container.login,
+.container.signup {
+  padding-top: 3rem;
+}
