@@ -1,0 +1,51 @@
+<div>
+    <h1>{{ profile.user.username }}</h1>
+    <h2> Дата рождения: 
+    {% if profile.date_birth %}
+        <i> {{ profile.date_birth|date:"d F Y" }} </i>
+    {% endif %}
+    </h2>
+    <h2> Обо мне: 
+    {% if profile.about %} 
+        <i> {{ profile.about }} </i> 
+    {% endif %}
+    </h2>
+    <h2> <img class='avatar' src= '{{ profile.avatar.url }}'/> </h2>
+    {% if user.id == profile.user.id %}
+        <a href="{% url 'core:edit-profile' profile.user.id %}">  Редактировать профиль  </a>
+    {% else %}
+        <form action = '{% url 'core:add-remove-friend' profile.user.id %}' method= 'post'>
+        {% csrf_token %}
+        {% if profile in user.user_profile.friends.all %}
+            <button type='submit'> Удалить из друзей </button>
+        {% else %}
+            <button type='submit'> Добавить в друзья </button>
+        {% endif %}
+        </form>
+    {% endif %}
+    <p>Друзья:</p>
+    {% if profile.friends.all %}
+                {% for friend in profile.friends.all %}
+                    <li>
+                        <a href='{% url 'core:profile' friend.user.id %}'>{{ friend }}</a>
+                    </li>
+                {% endfor %}
+    {% else %}
+        <li> <a> Пока нет друзей. </a> </li>
+    {% endif %}
+    <p>Посты:</p> 
+    {% if profile.user.post_set.all  %}
+            {% for post in profile.user.post_set.all %}
+                <a href='{% url 'core:post' post.id %}'> <img src = '{{ post.image.url }}' alt="Card image cap"> </a>
+                  <p> {{ post.description }}</p>
+                    <a href= '{% url 'core:profile' post.author.id%}'> {{post.author.username}} </a>
+                    <p> {{ post.date_edit|date:"d F G:i"  }} </p>
+                    <p>{{ post.get_likes }} like{{post.get_likes|pluralize}}</p>
+                    <form method='post' action='{% url 'core:like-post' post.id %}'>
+                        {% csrf_token %} <button type='submit' class="btn btn-sm btn-danger"> like! </button>
+                    </form>
+            {% endfor %}
+    {% else %}
+            <a> Постов нет. </a>
+    {% endif %}
+</div>
