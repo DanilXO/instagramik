@@ -1,3 +1,4 @@
+import datetime
 from django.db import models
 from django.contrib.auth.models import User
 from django.dispatch import receiver
@@ -13,15 +14,32 @@ def user_avatar_path(instance, filename):
     return "user_{0}/avatar/{1}".format(instance.user.id, filename)
 
 
+from django.utils.translation import gettext_lazy as _
+from django.core.exceptions import ValidationError
+
+
+def validate_birth_date(value):
+    """
+    Проверяет корректность даты рождения
+    :param value: Date of Birth (date)
+    """
+    if value >= (timezone.now() + datetime.timedelta(days=1)).date():
+        raise ValidationError(_('%(value)s cannot be later today'), params={'value': value},)
+
+
 class Profile(models.Model):
     """ Модель профиля.
     С использованием django-user. Самый простой способ расширить стандартную модель пользователя"""
     # TODO: Подробно о стратегиях расширения Django User Model читайте здесь: https://habr.com/ru/post/313764/
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='user_profile')
-    birth_date = models.DateField('Date of Birth', null=True, blank=True)
+    birth_date = models.DateField('Date of Birth', null=True, blank=True, validators=[validate_birth_date])
     about = models.TextField(max_length=500, blank=True)
-    avatar = models.ImageField(upload_to=user_avatar_path, default=None)
+    avatar = models.ImageField(upload_to=user_avatar_path, blank=True, default=None)
     friends = models.ManyToManyField(User, related_name='friends', blank=True)
+
+    def save(self, *args, **kwargs):
+        self.full_clean()
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return str(self.user.username)

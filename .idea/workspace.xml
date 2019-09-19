@@ -2,25 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d74c763-c3ad-40c6-b28d-ed6ef8064984" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/core/templates/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/migrations/0002_auto_20190919_1536.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/tests/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/tests/static/test.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/tests/tests_models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/tests/tests_views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templates/core/delete_success.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/core/delete_success.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templates/core/edit_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/core/edit_profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templates/core/feed.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/core/feed.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templates/core/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/core/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templates/core/post.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/core/post.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templates/core/post_create.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/core/post_create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templates/core/post_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/core/post_delete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templates/core/post_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/core/post_edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templates/core/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/core/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templates/my_auth/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/my_auth/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templates/my_auth/password_reset.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/my_auth/password_reset.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templates/my_auth/password_reset_complete.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/my_auth/password_reset_complete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templates/my_auth/password_reset_confirm.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/my_auth/password_reset_confirm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templates/my_auth/password_reset_done.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/my_auth/password_reset_done.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templates/my_auth/password_reset_email.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/my_auth/password_reset_email.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templates/my_auth/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/my_auth/signup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/tests.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,8 +38,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -64,22 +53,25 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/core/templates/core" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/core/tests/static" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/core/static/core/css" />
-      <recent name="$PROJECT_DIR$/core/templates/core" />
-      <recent name="$PROJECT_DIR$/core" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/core/tests/static" />
+      <recent name="$PROJECT_DIR$/core/tests" />
       <recent name="$PROJECT_DIR$/core/templates/core" />
       <recent name="$PROJECT_DIR$/core/static/core/css" />
       <recent name="$PROJECT_DIR$/core/templates" />
-      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/core/tests" />
+      <recent name="$PROJECT_DIR$/core/tests_modelss" />
+      <recent name="$PROJECT_DIR$/core/static/core/css" />
+      <recent name="$PROJECT_DIR$/core/templates/core" />
+      <recent name="$PROJECT_DIR$/core" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -94,7 +86,109 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Django tests.Test: core.tests.tests_views">
+    <configuration name="Test: core.tests" type="DjangoTestsConfigurationType" temporary="true">
+      <module name="instagramik" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="core.tests" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test: core.tests.TestProfileModels" type="DjangoTestsConfigurationType" temporary="true">
+      <module name="instagramik" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="core.tests.TestProfileModels" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test: core.tests.tests_models" type="DjangoTestsConfigurationType" temporary="true">
+      <module name="instagramik" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="core.tests.tests_models" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test: core.tests.tests_views" type="DjangoTestsConfigurationType">
+      <module name="instagramik" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="core.tests.tests_views" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tests_views" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="instagramik" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/core/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/core/tests/tests_views.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="instagramik" type="Python.DjangoServer" factoryName="Django server">
       <module name="instagramik" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -119,6 +213,22 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Django server.instagramik" />
+      <item itemvalue="Django tests.Test: core.tests.tests_views" />
+      <item itemvalue="Django tests.Test: core.tests.TestProfileModels" />
+      <item itemvalue="Django tests.Test: core.tests" />
+      <item itemvalue="Django tests.Test: core.tests.tests_models" />
+      <item itemvalue="Python.tests_views" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.tests_views" />
+        <item itemvalue="Django tests.Test: core.tests.tests_models" />
+        <item itemvalue="Django tests.Test: core.tests" />
+        <item itemvalue="Django tests.Test: core.tests.TestProfileModels" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="allServicesViewState">
@@ -151,7 +261,10 @@
       <workItem from="1568098380438" duration="6438000" />
       <workItem from="1568178805316" duration="1507000" />
       <workItem from="1568374156610" duration="1003000" />
-      <workItem from="1568694103139" duration="5729000" />
+      <workItem from="1568694103139" duration="5946000" />
+      <workItem from="1568781129373" duration="3065000" />
+      <workItem from="1568878130530" duration="699000" />
+      <workItem from="1568892653090" duration="5569000" />
     </task>
     <task id="LOCAL-00001" summary="до половины 4 занятия">
       <created>1567763123388</created>
@@ -195,7 +308,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568697251677</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="6е занятие  - все страницы со стилями и наследованием">
+      <created>1568701044696</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1568701044696</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,17 +340,15 @@
     <MESSAGE value="4 занятие добавлены недостающие шаблоны" />
     <MESSAGE value="5е занятие" />
     <MESSAGE value="6е занятие + index page со стилями" />
-    <option name="LAST_COMMIT_MESSAGE" value="6е занятие + index page со стилями" />
+    <MESSAGE value="6е занятие  - все страницы со стилями и наследованием" />
+    <MESSAGE value="7е занятие" />
+    <option name="LAST_COMMIT_MESSAGE" value="7е занятие" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/core/urls.py</url>
-          <line>23</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/instagramik$Test__core_tests_TestProfileModels.coverage" NAME="Test: core.tests.TestProfileModels Coverage Results" MODIFIED="1568783019784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/instagramik$Test__core_tests_tests_models.coverage" NAME="Test: core.tests.tests_models Coverage Results" MODIFIED="1568896993854" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/instagramik$Test__core_tests_tests_views.coverage" NAME="Test: core.tests.tests_views Coverage Results" MODIFIED="1568898321858" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/instagramik$Test__core_tests.coverage" NAME="Test: core.tests Coverage Results" MODIFIED="1568894396232" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/instagramik$tests_views.coverage" NAME="tests_views Coverage Results" MODIFIED="1568897136132" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/core/tests" />
   </component>
 </project>
