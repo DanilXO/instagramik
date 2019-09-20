@@ -64,8 +64,8 @@ class Post(models.Model):
     description = models.TextField(max_length=1000, blank=True)
     image = models.ImageField(upload_to=user_directory_path)
     likes = models.ManyToManyField(User, related_name='users_likes_it', blank=True)
-    date_pub = models.DateTimeField(default=timezone.now)
-    date_edit = models.DateTimeField(default=timezone.now)
+    date_pub = models.DateTimeField(auto_now_add=True)
+    date_edit = models.DateTimeField(auto_now=True)
 
     @property
     def image_url(self):
@@ -75,6 +75,10 @@ class Post(models.Model):
     @property
     def get_likes(self):
         return self.likes.count()
+
+    @property
+    def published(self):
+        return True if self.date_pub <= (timezone.now() + datetime.timedelta(days=1)) else False
 
     def __str__(self):
         return "author {0} description {1}".format(self.author.username, self.description)
